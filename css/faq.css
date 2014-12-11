@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+code {
+    font-family: "Droid Sans Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+/*  Index Link List
+-------------------------------------------------- */
+.question-anchor {
+    display: block;
+}
+
+.question-anchor:hover {
+    background-color: ;
+}
+
+/*  Q & A Panels
+-------------------------------------------------- */
+#list {
+    padding-left: 0;
+}
+
+#list > li {
+    list-style-type: none;
+}
+
+.answers {
+    padding-right: 2em;
+}
+.list-group-item {
+    padding: 0.35em;
+}
+
+.panel-heading span {
+    float: right;
+}
+
+/* Back to the top button
+-------------------------------------------------- */
+.back-to-top {
+    background: white;
+    bottom: 0.35em;
+    font-size: 3em;
+    opacity: 0.65;
+    position: fixed;
+    right: 0.35em;
+    text-decoration: none !important;
+    top: auto;
+    z-index:2;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+
+/* Made-by banner
+-------------------------------------------------- */
+footer {
+    background-color: rgba(255,255,255, 0.9);
+    height: 3em;
+    line-height: 3em;
+    padding-right: 1em;
+    position: fixed;
+    text-align: right;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/*EOF*/

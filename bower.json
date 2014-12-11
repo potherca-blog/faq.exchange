@@ -1,0 +1,25 @@
+{
+  "name": "PHPUnit-Mock-FAQ",
+  "version": "0.1.0",
+  "authors": [
+    "Pothercs <potherca@gmail.com>"
+  ],
+  "description": "PHPUnit Mock Q&A based on StackOverflow Questions and Answers",
+  "main": "index.html",
+  "keywords": [
+    "phpunit",
+    "mock",
+    "faq"
+  ],
+  "license": "GPL-3.0+",
+  "homepage": "http://pother.ca/PHPUnit-Mock-FAQ",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "google-code-prettify": "tcollard/google-code-prettify#~1.0.3"
+  },
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ]
+}
