@@ -2,7 +2,7 @@
   "name": "PHPUnit-Mock-FAQ",
   "version": "0.1.0",
   "authors": [
-    "Pothercs <potherca@gmail.com>"
+    "Potherca <potherca@gmail.com>"
   ],
   "description": "PHPUnit Mock Q&A based on StackOverflow Questions and Answers",
   "main": "index.html",
