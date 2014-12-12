@@ -24,7 +24,7 @@ The FAQ uses [Bootstrap] and [jQuery] to pull the Questions and answers straight
 [Bootstrap]: http://getbootstrap.com/
 [jQuery]: http://jquery.com/
 [report suggestions or bugs]: https://github.com/potherca/phpunit-mock-faq/issues/new
-[StackOver API]: https://api.stackexchange.com/docs/advanced-search#order=desc&sort=votes&q=phpunit%20mocks&site=stackoverflow&filter=!SC_g(LT_pJnL2lxfET--P_)p5zPQ212ioRM-*552DRcbu*sEtpTSNJ)dt(y8IgtT
+[StackOverflow API]: https://api.stackexchange.com/docs/advanced-search#order=desc&sort=votes&q=phpunit%20mocks&site=stackoverflow&filter=!SC_g(LT_pJnL2lxfET--P_)p5zPQ212ioRM-*552DRcbu*sEtpTSNJ)dt(y8IgtT
 [The State of PHPUnit]: http://www.phpnw.org.uk/talk/the-state-of-phpunit/
 [Volker Dusch]: https://twitter.com/__edorian
 
