@@ -69,10 +69,9 @@ footer {
     background-color: rgba(255,255,255, 0.9);
     height: 3em;
     line-height: 3em;
-    padding-right: 1em;
+    padding-left: 1em;
     position: fixed;
-    text-align: right;
-    top: 0;
+    bottom: 0;
     width: 100%;
     z-index: 1;
 }
