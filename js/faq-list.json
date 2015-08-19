@@ -1,0 +1,6 @@
+{
+    "phpunit": {
+        "url": "https://api.stackexchange.com/docs/advanced-search#order=desc&sort=votes&q=phpunit%20mocks&site=stackoverflow&filter=!SC_g(LT_pJnL2lxfET--P_)p5zPQ212ioRM-*552DRcbu*sEtpTSNJ)dt(y8IgtT",
+        "syntax": "php"
+    }
+}
