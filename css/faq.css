@@ -76,4 +76,46 @@ footer {
     z-index: 1;
 }
 
+/*  "Loading" panel
+-------------------------------------------------- */
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: none;
+    background-color: rgba(225,225,225,0.35);
+    display: none;
+    padding-top: 15%;
+    text-align: center;
+    font-size: 2em;
+    color: rgb(255, 102, 0);
+    font-weight: bold;
+}
+
+#loading .glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
 /*EOF*/
