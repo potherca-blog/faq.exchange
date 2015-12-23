@@ -1,6 +1,8 @@
 {
-    "phpunit": {
-        "url": "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=votes&q=phpunit%20mocks&site=stackoverflow&filter=!SC_g(LT_pJnL2lxfET--P_)p5zPQ212ioRM-*552DRcbu*sEtpTSNJ)dt(y8IgtT",
+    "phpunit-mocks": {
+        "title": "PHPUnit Mocks",
+        "url": "https://phpunit.de/manual/current/en/test-doubles.html",
+        "searchTerm": "phpunit mocks",
         "syntax": "php"
     }
 }
