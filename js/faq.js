@@ -190,7 +190,7 @@ var faqOptions = faqOptions || {};
     $ShortList = $('#short-list');
     $.ajax({
         dataType: 'json',
-        url : './js/faq-list.json'
+        url : '/js/faq-list.json'
     })
         .done(fetchFaqs)
         .fail(handleResponseError)
