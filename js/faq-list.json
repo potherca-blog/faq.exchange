@@ -4,5 +4,11 @@
         "url": "https://phpunit.de/manual/current/en/test-doubles.html",
         "searchTerm": "phpunit mocks",
         "syntax": "php"
+    },
+    "jmsserializerbundle": {
+        "title": "JMS Serializer Bundle",
+        "url": "http://jmsyst.com/bundles/JMSSerializerBundle",
+        "searchTerm": "[jmsserializerbundle]",
+        "syntax": "php"
     }
 }
