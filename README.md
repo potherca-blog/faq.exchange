@@ -12,7 +12,9 @@ PHPUnit-Mock Q&A based on StackOverflow Questions and Answers
 About 8 minutes into his PHPNW12 Talk [The State of PHPUnit], [Volker Dusch] mentioned that there is a lot of stuff on StackOverflow that answer all the common questions.
 He also states that he would be really happy if someone would take the time to compile them into a FAQ.
 
-So [I][Potherca] decided to build one: http://pother.ca/phpunit-mock-faq/
+So [I][Potherca] decided to build one: http://faq.exchange/phpunit-mocks/
+
+After a first version was only, it seemed like a neat plan to implement things in a more generic way so other topics could also be supported. This has been achieved but other topic still need to be added.
 
 Feel free to [report suggestions or bugs].
 
