@@ -1,9 +1,9 @@
 {
-  "name": "PHPUnit-Mock-FAQ",
+  "name": "faq.exchange",
   "authors": [
     "Potherca <potherca@gmail.com>"
   ],
-  "description": "PHPUnit Mock Q&A based on StackOverflow Questions and Answers",
+  "description": "Frequently Asked Questions site based on StackOverflow Questions and Answers",
   "main": "index.html",
   "keywords": [
     "phpunit",
@@ -11,7 +11,7 @@
     "faq"
   ],
   "license": "GPL-3.0+",
-  "homepage": "http://pother.ca/phpunit-mock-faq/",
+  "homepage": "https://faq.exchange/",
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.1",
