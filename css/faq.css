@@ -13,6 +13,9 @@ code {
     font-family: "Droid Sans Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+img {
+    max-width: 100%;
+}
 
 /*  Index Link List
 -------------------------------------------------- */
