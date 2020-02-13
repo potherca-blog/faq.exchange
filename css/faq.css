@@ -49,6 +49,7 @@ code {
 
 .back-to-top {
     background: white;
+    border-radius: 100%;
     bottom: 0.35em;
     font-size: 3em;
     opacity: 0.65;
