@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono);
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -16,27 +16,26 @@ code {
 
 /*  Index Link List
 -------------------------------------------------- */
+
 .question-anchor {
     display: block;
 }
 
-.question-anchor:hover {
-    background-color: ;
-}
-
 /*  Q & A Panels
 -------------------------------------------------- */
+
 #list {
     padding-left: 0;
 }
 
-#list > li {
+#list>li {
     list-style-type: none;
 }
 
 .answers {
     padding-right: 2em;
 }
+
 .list-group-item {
     padding: 0.35em;
 }
@@ -47,6 +46,7 @@ code {
 
 /* Back to the top button
 -------------------------------------------------- */
+
 .back-to-top {
     background: white;
     bottom: 0.35em;
@@ -56,7 +56,7 @@ code {
     right: 0.35em;
     text-decoration: none !important;
     top: auto;
-    z-index:2;
+    z-index: 2;
 }
 
 .back-to-top:hover {
@@ -65,8 +65,9 @@ code {
 
 /* Made-by banner
 -------------------------------------------------- */
+
 footer {
-    background-color: rgba(255,255,255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     height: 3em;
     line-height: 3em;
     padding-left: 1em;
@@ -78,6 +79,7 @@ footer {
 
 /*  "Loading" panel
 -------------------------------------------------- */
+
 #loading {
     position: absolute;
     top: 0;
@@ -85,7 +87,7 @@ footer {
     height: 100%;
     width: 100%;
     background-color: none;
-    background-color: rgba(225,225,225,0.35);
+    background-color: rgba(225, 225, 225, 0.35);
     display: none;
     padding-top: 15%;
     text-align: center;
@@ -98,6 +100,7 @@ footer {
     -webkit-animation: spin 1000ms infinite linear;
     animation: spin 1000ms infinite linear;
 }
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -108,6 +111,7 @@ footer {
         transform: rotate(359deg);
     }
 }
+
 @keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -118,4 +122,5 @@ footer {
         transform: rotate(359deg);
     }
 }
+
 /*EOF*/
