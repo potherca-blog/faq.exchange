@@ -43,6 +43,11 @@ img {
     padding: 0.35em;
 }
 
+.panel-heading {
+    position: sticky;
+    top: 0;
+}
+
 .panel-heading span {
     float: right;
 }
