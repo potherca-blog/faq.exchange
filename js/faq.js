@@ -130,6 +130,12 @@ var faqOptions = faqOptions || {};
                 .reduce((accumulator, currentValue) => accumulator !== '' ? accumulator : currentValue, '')
         }
 
+        try {
+            subject = decodeURIComponent(subject)
+        } catch (Error) {
+            // Ignore incorrect user input for now
+        }
+
         return subject
     }
 
