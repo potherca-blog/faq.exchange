@@ -21,6 +21,21 @@ That is to say, these URLs will all give you the same FAQ:
 
 Obviously, `phpunit-mocks` can be replaced with topic or search-term you like.
 
+Several words can be combined using a "plus" character: `+`, for instance: `css+hsl`.
+
+To search for a tag (instead of a word), use square brackets, `[` and `]`. For instance the most common questions for the most loved and wanted languages from [the 2019 Stackoverflow survey][stackoverflow-survey]?
+
+- **Go** http://faq.exchange/?[Go]
+- **JavaScript** http://faq.exchange/?[JavaScript]
+- **Kotlin** http://faq.exchange/?[Kotlin]
+- **Python** http://faq.exchange/?[Python]
+- **Rust** http://faq.exchange/?[Rust]
+- **TypeScript** http://faq.exchange/?[TypeScript]
+- **WebAssembly** http://faq.exchange/?[WebAssembly]
+
+[stackoverflow-survey]: https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted
+
+
 Feel free to [report suggestions or bugs][issues-url].
 
 ## Inception
