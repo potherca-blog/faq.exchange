@@ -7,10 +7,9 @@ var faqOptions = faqOptions || {};
 
     function parseTemplate(p_sTemplate, p_oContext) {
         return p_sTemplate.replace(/{{([a-zA-Z\-_]+)}}/g, function(p_sMatch, p_sName) {
-            return typeof p_oContext[p_sName] != 'undefined'
-                ? p_oContext[p_sName]
-                : p_sMatch
-                ;
+            return typeof p_oContext[p_sName] != 'undefined' ?
+                p_oContext[p_sName] :
+                p_sMatch;
         });
     }
 
@@ -28,53 +27,53 @@ var faqOptions = faqOptions || {};
 
                 if (p_oQuestion.score > 0 && p_oQuestion.answers !== undefined) {
                     /** @namespace p_oQuestion.score */
-                    $ShortList.append(''
-                        + '<li class="list-group-item">'
-                        + '<span class="badge">' + p_oQuestion.score +'</span>'
-                        + '<a class="question-anchor" href="#question-' + p_iIndex + '">'
-                        + p_oQuestion.title
-                        + '</a>'
-                        + '</li>'
+                    $ShortList.append('' +
+                        '<li class="list-group-item">' +
+                        '<span class="badge">' + p_oQuestion.score + '</span>' +
+                        '<a class="question-anchor" href="#question-' + p_iIndex + '">' +
+                        p_oQuestion.title +
+                        '</a>' +
+                        '</li>'
                     );
 
                     /** @namespace p_oQuestion.down_vote_count */
                     /** @namespace p_oQuestion.up_vote_count */
                     $ListItem = $(
-                        '<li id="question-' + p_iIndex + '" class="panel panel-primary">'
-                        + '<div class="panel-heading">'
-                        + '<h2 class="panel-title"><a href="' + p_oQuestion.link + '">'
-                        + p_oQuestion.title
-                        + '</a>'
-                        +'<span>'
-                        + ' Question score: <span class="label label-info"'
-                        + ' title="(+' + p_oQuestion.up_vote_count + '/-' + p_oQuestion.down_vote_count + ')"'
-                        +'>' + p_oQuestion.score +'</span>'
-                        +'</span>'
-                        +'</h2>'
-                        + '</div>'
-                        + '</li>'
+                        '<li id="question-' + p_iIndex + '" class="panel panel-primary">' +
+                        '<div class="panel-heading">' +
+                        '<h2 class="panel-title"><a href="' + p_oQuestion.link + '">' +
+                        p_oQuestion.title +
+                        '</a>' +
+                        '<span>' +
+                        ' Question score: <span class="label label-info"' +
+                        ' title="(+' + p_oQuestion.up_vote_count + '/-' + p_oQuestion.down_vote_count + ')"' +
+                        '>' + p_oQuestion.score + '</span>' +
+                        '</span>' +
+                        '</h2>' +
+                        '</div>' +
+                        '</li>'
                     );
 
-                    $Question = $(''
-                        + '<div class="question panel-body">'
-                        + p_oQuestion.body
-                        + '</div><!--/.question-->'
+                    $Question = $('' +
+                        '<div class="question panel-body">' +
+                        p_oQuestion.body +
+                        '</div><!--/.question-->'
                     );
 
-                    $Answers = $(''
-                        + '<ol class="answers">'
-                        + '</ol><!--/.answers-->'
+                    $Answers = $('' +
+                        '<ol class="answers">' +
+                        '</ol><!--/.answers-->'
                     );
 
                     $ListItem.append($Question);
                     $ListItem.append($Answers);
                     $List.append($ListItem);
 
-                    if(p_oQuestion.answers === undefined) {
+                    if (p_oQuestion.answers === undefined) {
                         p_oQuestion.answers = [];
                     }
 
-                    p_oQuestion.answers.sort(function (a, b) {
+                    p_oQuestion.answers.sort(function(a, b) {
                         return b.score - a.score;
                     });
 
@@ -84,15 +83,15 @@ var faqOptions = faqOptions || {};
                         if (p_oAnswer.score > 0) {
                             /** @namespace p_oAnswer.is_accepted */
                             $Answer = $(
-                                '<li class="answer">'
-                                + '<h3 class="' + (p_oAnswer.is_accepted?'bg-success text-success':'bg-info text-info') + '">'
-                                + ' <a href="' + p_oAnswer.link + '" class="' + (p_oAnswer.is_accepted?'text-success glyphicon glyphicon-ok':'') + '">'
-                                + 'Answer scoring <span class="label label-default">' + p_oAnswer.score + '</span>'
-                                + '</a><small>'
-                                + ' (+' + p_oAnswer.up_vote_count + '/-' + p_oAnswer.down_vote_count + ')'
-                                + '</small></h3>'
-                                + p_oAnswer.body
-                                + '</li><!--/.answer-->'
+                                '<li class="answer">' +
+                                '<h3 class="' + (p_oAnswer.is_accepted ? 'bg-success text-success' : 'bg-info text-info') + '">' +
+                                ' <a href="' + p_oAnswer.link + '" class="' + (p_oAnswer.is_accepted ? 'text-success glyphicon glyphicon-ok' : '') + '">' +
+                                'Answer scoring <span class="label label-default">' + p_oAnswer.score + '</span>' +
+                                '</a><small>' +
+                                ' (+' + p_oAnswer.up_vote_count + '/-' + p_oAnswer.down_vote_count + ')' +
+                                '</small></h3>' +
+                                p_oAnswer.body +
+                                '</li><!--/.answer-->'
                             );
                             $Answers.append($Answer);
                         }
@@ -107,33 +106,41 @@ var faqOptions = faqOptions || {};
         }
     }
 
-    function getNameFromUrl(p_oUrl, p_oSubjects) {
-        var sName, aKeys;
+    /**
+     * Get search term from URL.
+     *
+     * The order the URL is searched is:
+     *
+     *     https://one.faq.exchange/two?three#four
+     *
+     * 1. Sub-domain: https://search-term.faq.exchange (does not support [TAG] syntax)
+     * 2. Path: https://faq.exchange/search-term
+     * 3. Query: https://faq.exchange/?search-term
+     * 4. Hash: https://faq.exchange/#search-term
+     */
+    function getSubjectFromUrl(p_oUrl) {
 
-        aKeys = $.map(p_oSubjects, function (p_oValue, p_sKey) {
-            return p_sKey;
-        });
+        const domain = document.location.host.split('.').slice(-2, -1)[0]
+        let subject = document.location.host.split('.').shift()
 
-        $.each(aKeys, function (p_iIndex, p_sKey) {
-            if (p_sKey === p_oUrl.host.split('.')[0]
-                || p_oUrl.pathname.indexOf(p_sKey) > -1
-                || p_oUrl.search.indexOf(p_sKey) > -1
-                || p_oUrl.hash.indexOf(p_sKey) > -1
-            ) {
-                sName = p_sKey;
-                return false;
-            }
-        });
+        if (subject === domain) {
+            subject = ['pathname', 'search', 'hash']
+                .map(name => document.location[name])
+                .map(value => value.substring(1))
+                .reduce((accumulator, currentValue) => accumulator !== '' ? accumulator : currentValue, '')
+        }
 
-        return sName;
+        return subject
     }
 
-    function fetchFaqs(p_oData/*, p_sStatus, p_oJqXHR*/) {
-        var sReferenceUrl, sUrl, $Link, $Header, sName, $Title, oFaq;
+    function fetchFaqs(p_sSearchTerm) {
+        var sReferenceUrl, sUrl, $Link, $Header, $Title;
 
-        sName = getNameFromUrl(window.location, p_oData);
-        oFaq = p_oData[sName];
-        oOptions = $.extend({}, oOptions, oFaq);
+        oOptions = $.extend({}, oOptions, {
+            "title": p_sSearchTerm, // @TODO: Cleanup title (capitalise, isLtag, etc)
+            "url": "https://stackoverflow.com/search?q=" + p_sSearchTerm,
+            "searchTerm": p_sSearchTerm
+        });
         oOptions.searchTerm = encodeURIComponent(oOptions.searchTerm);
         sSyntax = oOptions.syntax;
 
@@ -144,7 +151,7 @@ var faqOptions = faqOptions || {};
         $Title = $Header.find('span');
 
         $Title.prepend($(
-            parseTemplate('<a href="{{url}}">{{title}}</a>', {url: oOptions.url, title: oOptions.title})
+            parseTemplate('<a href="{{url}}">{{title}}</a>', { url: oOptions.url, title: oOptions.title })
         ));
 
         sReferenceUrl = $Link.attr('href') + parseTemplate(
@@ -159,13 +166,12 @@ var faqOptions = faqOptions || {};
         );
 
         $.ajax({
-            crossDomain: true,
-            dataType: 'json',
-            url: sUrl
-        })
+                crossDomain: true,
+                dataType: 'json',
+                url: sUrl
+            })
             .done(handleResponseSuccess)
-            .fail(handleResponseError)
-        ;
+            .fail(handleResponseError);
     }
 
     oOptions = $.extend({}, {
@@ -180,21 +186,18 @@ var faqOptions = faqOptions || {};
     }, p_oOptions || {});
 
     $Loader = $('#loading');
-    $(document).ajaxStart(function(){
+    $(document).ajaxStart(function() {
         $Loader.show();
-    }).ajaxStop(function(){
+    }).ajaxStop(function() {
         $Loader.hide();
     });
 
     $List = $('#list');
     $ShortList = $('#short-list');
-    $.ajax({
-        dataType: 'json',
-        url : '/js/faq-list.json'
-    })
-        .done(fetchFaqs)
-        .fail(handleResponseError)
-    ;
+
+    var sSubject = getSubjectFromUrl(window.location);
+
+    fetchFaqs(sSubject);
 
 }(jQuery, faqOptions));
 
