@@ -113,22 +113,15 @@ var faqOptions = faqOptions || {};
      *
      *     https://one.faq.exchange/two?three#four
      *
-     * 1. Sub-domain: https://search-term.faq.exchange (does not support [TAG] syntax)
-     * 2. Path: https://faq.exchange/search-term
-     * 3. Query: https://faq.exchange/?search-term
-     * 4. Hash: https://faq.exchange/#search-term
+     * 1. Path: https://faq.exchange/search-term
+     * 2. Query: https://faq.exchange/?search-term
+     * 3. Hash: https://faq.exchange/#search-term
      */
     function getSubjectFromUrl(p_oUrl) {
-
-        const domain = document.location.host.split('.').slice(-2, -1)[0]
-        let subject = document.location.host.split('.').shift()
-
-        if (subject === domain) {
-            subject = ['pathname', 'search', 'hash']
-                .map(name => document.location[name])
-                .map(value => value.substring(1))
-                .reduce((accumulator, currentValue) => accumulator !== '' ? accumulator : currentValue, '')
-        }
+        let subject = ['pathname', 'search', 'hash']
+            .map(name => document.location[name])
+            .map(value => value.substring(1))
+            .reduce((accumulator, currentValue) => accumulator !== '' ? accumulator : currentValue, '')
 
         try {
             subject = decodeURIComponent(subject)
