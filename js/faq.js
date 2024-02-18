@@ -113,12 +113,12 @@ var faqOptions = faqOptions || {};
      *
      *     https://one.faq.exchange/two?three#four
      *
-     * 1. Path: https://faq.exchange/search-term
-     * 2. Query: https://faq.exchange/?search-term
-     * 3. Hash: https://faq.exchange/#search-term
+     * 1. Query: https://faq.exchange/?search-term
+     * 2. Hash: https://faq.exchange/#search-term
+     * 3. Path: https://faq.exchange/search-term
      */
     function getSubjectFromUrl(p_oUrl) {
-        let subject = ['pathname', 'search', 'hash']
+        let subject = ['search', 'hash','pathname']
             .map(name => document.location[name])
             .map(value => value.substring(1))
             .reduce((accumulator, currentValue) => accumulator !== '' ? accumulator : currentValue, '')
